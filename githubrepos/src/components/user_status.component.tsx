@@ -16,7 +16,10 @@ import {
   setGithubAccessToken,
   setGithubUser,
 } from "../core/store/user/reducer";
-import { getRepositories } from "../core/store/repositories/reducer";
+import {
+  clearFavoritesList,
+  getRepositories,
+} from "../core/store/repositories/reducer";
 import { NAVLINKS } from "../constants";
 
 const UserStatus = () => {
@@ -29,10 +32,11 @@ const UserStatus = () => {
     dispatch(setGithubAccessToken(undefined));
     dispatch(setGithubUser(undefined));
     dispatch(getRepositories([]));
+    dispatch(clearFavoritesList());
     dispatch(getUserSuccess(undefined));
+    localStorage.removeItem("persist:root");
     localStorage.removeItem("user");
     localStorage.removeItem("github_access_token");
-    localStorage.removeItem("persist:root");
     navigate("/login");
     // window.location.reload();
   };

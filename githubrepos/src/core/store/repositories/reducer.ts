@@ -49,6 +49,9 @@ export const repositoryReducer = createSlice({
         }
       }
     },
+    clearFavoritesList: (state) => {
+      state.favorites = [];
+    },
   },
 });
 
@@ -58,6 +61,7 @@ export const {
   getRepositoriesFail,
   getRepositoriesLoading,
   setFavorites,
+  clearFavoritesList,
 } = repositoryReducer.actions;
 export const RepositoryReducerActionTypes = repositoryReducer.actions;
 export default repositoryReducer.reducer;
