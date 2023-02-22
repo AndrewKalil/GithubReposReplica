@@ -10,7 +10,7 @@ const CardGridComponent = ({ data }: CardGridProps) => {
   return (
     <div
       style={{ gridAutoRows: "11rem" }}
-      className="w-full h-full grid grid-cols-4 gap-4 overflow-auto p-4"
+      className="w-full h-full grid grid-cols-1 lg:grid-cols-4 gap-4 overflow-auto p-4"
     >
       {data.map((repo) => {
         const { id } = repo;

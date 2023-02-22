@@ -8,12 +8,12 @@ const NavbarComponent = () => {
   return (
     <nav className="w-full h-full flex drop-shadow-md bg-white border-b border-gray-100">
       <LogoComponent />
-      <div className="grow flex justify-start items-center">
+      <div className="grow lg:flex justify-start items-center hidden ">
         {NAVLINKS.map((link) => {
-          return <NavlinkComponent key={link} link={link} />;
+          return <NavlinkComponent key={link.name} link={link.name} />;
         })}
       </div>
-      <div className="w-1/4 h-full">
+      <div className="lg:w-1/4 w-1/2 h-full">
         <UserStatus />
       </div>
     </nav>

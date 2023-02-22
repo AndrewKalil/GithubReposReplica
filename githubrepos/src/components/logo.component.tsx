@@ -10,7 +10,7 @@ const LogoComponent = () => {
   return (
     <div
       onClick={navigateHome}
-      className="cursor-pointer w-1/4 h-full logo text-2xl flex items-center justify-center"
+      className="cursor-pointer lg:w-1/4 w-1/2 h-full logo text-md lg:text-2xl flex items-center justify-center "
     >
       HelloBuild Test
     </div>

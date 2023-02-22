@@ -9,7 +9,9 @@ const NavlinkComponent = ({ link }: NavlinkProps) => {
   return (
     <NavLink
       className={({ isActive }) =>
-        isActive ? "mr-8 font-extrabold active-link" : "mr-8 font-extrabold"
+        isActive
+          ? "lg:mr-8 mr-1 font-extrabold active-link"
+          : "lg:mr-8 mr-1 font-extrabold"
       }
       key={link}
       to={link}

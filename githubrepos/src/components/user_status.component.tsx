@@ -4,6 +4,9 @@ import Avatar from "@mui/material/Avatar";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
+import MoveToInboxIcon from "@mui/icons-material/MoveToInbox";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import PersonIcon from "@mui/icons-material/Person";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Tooltip from "@mui/material/Tooltip";
@@ -17,6 +20,7 @@ import {
   setGithubUser,
 } from "../core/store/user/reducer";
 import { getRepositories } from "../core/store/repositories/reducer";
+import { NAVLINKS } from "../constants";
 
 const UserStatus = () => {
   const user = useSelector((state: RootState) => state.user.user);
@@ -36,8 +40,8 @@ const UserStatus = () => {
     // window.location.reload();
   };
 
-  const navigateToProfile = () => {
-    navigate("/profile");
+  const navigateToProfile = (link: string) => {
+    navigate(`/${link}`);
     handleClose();
   };
 
@@ -103,9 +107,17 @@ const UserStatus = () => {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <MenuItem onClick={navigateToProfile}>
-          <Avatar /> Profile
-        </MenuItem>
+        {NAVLINKS.map((link) => {
+          return (
+            <MenuItem
+              onClick={() => navigateToProfile(link.name)}
+              key={link.name}
+            >
+              <link.Icon className="mr-1" />{" "}
+              {link.name.charAt(0).toUpperCase() + link.name.slice(1)}
+            </MenuItem>
+          );
+        })}
         <Divider />
         <MenuItem onClick={signoutUser}>
           <ListItemIcon>
