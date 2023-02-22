@@ -5,14 +5,18 @@ Let's get started...
 ```
 git clone https://github.com/AndrewKalil/GithubReposReplica.git
 ```
+2. Enter Project directory
+```
+cd ./GithubReposReplica
+```
 
-2. run proxy server
+3. run proxy server
 ```
 cd ./proxy-server
 node ./serve.js
 ```
 
-3. Open up another terminal and run frontend app
+4. Open up another terminal and run frontend app
 ```
 cd ./githubrepos
 npm start
