@@ -11,15 +11,8 @@ import Logout from "@mui/icons-material/Logout";
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from "../core/store";
 import { useNavigate } from "react-router-dom";
-import {
-  getUserSuccess,
-  setGithubAccessToken,
-  setGithubUser,
-} from "../core/store/user/reducer";
-import {
-  clearFavoritesList,
-  getRepositories,
-} from "../core/store/repositories/reducer";
+import { clearUserState } from "../core/store/user/reducer";
+import { clearRepositoryState } from "../core/store/repositories/reducer";
 import { NAVLINKS } from "../constants";
 
 const UserStatus = () => {
@@ -29,11 +22,8 @@ const UserStatus = () => {
 
   const signoutUser = () => {
     handleClose();
-    dispatch(setGithubAccessToken(undefined));
-    dispatch(setGithubUser(undefined));
-    dispatch(getRepositories([]));
-    dispatch(clearFavoritesList());
-    dispatch(getUserSuccess(undefined));
+    dispatch(clearUserState());
+    dispatch(clearRepositoryState());
     localStorage.removeItem("persist:root");
     localStorage.removeItem("user");
     localStorage.removeItem("github_access_token");

@@ -49,6 +49,9 @@ export const userReducer = createSlice({
     setGithubUser: (state, action) => {
       state.githubUser = action.payload;
     },
+    clearUserState: (state) => {
+      state = INITIAL_STATE;
+    },
   },
 });
 
@@ -59,6 +62,7 @@ export const {
   getUserSuccess,
   setGithubAccessToken,
   setGithubUser,
+  clearUserState,
 } = userReducer.actions;
 
 export default userReducer.reducer;
